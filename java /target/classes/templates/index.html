@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Googol Search</title>
+</head>
+<body style="margin-left: 20px;">
+    <h1>Googol</h1>
+    <div style="display: inline-block; margin-right: 20px;">
+        <a th:href="@{/search}">Procurar uma palavra</a>
+    </div>
+    <div style="display: inline-block; margin-right: 20px;">
+        <a th:href="@{/add-url}">Adicionar URL</a>
+    </div>
+    <div style="display: inline-block; margin-right: 20px;">
+        <a th:href="@{/search-linksto}">Procurar link</a>
+    </div>
+    <div style="display: inline-block; margin-right: 20px;">
+        <a th:href="@{/top10}">Top10 Páginas com mais referências</a>
+    </div>
+    <div style="display: inline-block;margin-right: 20px;">
+        <a th:href="@{/estatisticas}">WebSocketStats</a>
+    </div>
+</body>
+</html>

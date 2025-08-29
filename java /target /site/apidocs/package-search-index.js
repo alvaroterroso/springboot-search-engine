@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"googol.backend"},{"l":"googol.frontend"},{"l":"googol.frontend.config"},{"l":"googol.frontend.controllers"},{"l":"googol.frontend.model"}];updateSearchResults();

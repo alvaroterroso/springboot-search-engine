@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Top 10 Páginas</title>
+</head>
+<body style="margin-left: 20px;">
+    <h1>Top 10 Páginas mais Referenciadas</h1>
+
+	<div th:if="${links.isEmpty()}">
+        <p>Nenhuma página encontrada.</p>
+    </div>
+
+	<ul>
+        <div th:each="link : ${links}">
+            <li class="result-item">
+                <a th:href="${link}" th:text="${link}"></a>
+            </li>
+        </div>
+    </ul>
+
+
+
+    <div th:if="${#lists.isEmpty(links)}">
+        <p>Nenhuma página encontrada.</p>
+    </div>
+</body>
+</html>
+<a th:href="@{/}">Ir para o menu principal</a>

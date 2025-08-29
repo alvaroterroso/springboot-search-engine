@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar URL</title>
+</head>
+<body style="margin-left: 20px;">
+    <div class="container">
+        <h1>Adicionar URL para Indexação</h1>
+
+        <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+        
+        <form th:action="@{/add-url}" method="post">
+            <div class="form-group">
+                <label for="url">URL:</label>
+                <input type="text" id="url" name="url" class="form-control" 
+                       placeholder="https://exemplo.com" required>
+				<button type="submit" class="btn btn-primary">Adicionar URL</button>
+            </div>
+        </form>
+    </div>
+	<div style="margin-top: 20px;">
+		<a th:href="@{/}">Ir para o menu principal</a>
+	</div>
+</body>
+</html>

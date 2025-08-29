@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resultados para <span th:text="${query}"></span></title>
+    
+</head>
+<body style="margin-left: 20px;">
+    <div class="container mt-4">
+        <h1>Resultados para: <span th:text="${query}"></span></h1>
+        
+        <div class="card mt-3" th:if="${not #strings.isEmpty(analysis)}">
+            <div class="card-body">
+                <div class="p-3 bg-light rounded" th:text="${analysis}"></div>
+            </div>
+        </div>
+        
+        <p>Resultados <span th:text="${startResult}"></span>-<span th:text="${endResult}"></span></p>
+        
+        <div th:if="${results.isEmpty()}">
+            <p>Nenhum resultado encontrado para a sua pesquisa.</p>
+        </div>
+        
+		<ul>
+            <div th:each="result : ${results}">
+                <li class="result-item" style="margin-bottom: 10px;">
+                    <a th:href="${result.split(' \\| ')[0]}" th:text="${result}"></a>
+                </li>
+            </div>
+        </ul>
+
+
+        <div class="pagination" style="margin-top: 20px;">
+            <!-- Botão Anterior -->
+            <a th:href="@{/search/results(query=${query}, page=${currentPage - 1}, isPagination=true)}" 
+               th:class="${isFirstPage} ? 'disabled' : ''"
+               th:if="${not isFirstPage}">
+                Anterior
+            </a>
+            
+            <!-- Página Atual -->
+            <span th:text="'Página ' + ${currentPage}"></span>
+            
+            <!-- Botão Próximo -->
+            <a th:href="@{/search/results(query=${query}, page=${currentPage + 1}, isPagination=true) }" 
+               th:class="${isLastPage} ? 'disabled' : ''"
+               th:if="${not isLastPage}">
+                Próxima
+            </a>
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <a th:href="@{/search}"style="margin-right: 20px;">Nova pesquisa</a> 
+            <a th:href="@{/}"style="margin-right: 20px;">Menu principal</a>
+            <a th:href="@{/hackernews(query=${query})}" class="btn btn-outline-secondary me-2">Search Hacker News</a>
+        </div>
+    </div>
+</body>
+</html>
